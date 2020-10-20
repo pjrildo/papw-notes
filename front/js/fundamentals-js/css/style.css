@@ -1,0 +1,11 @@
+body {
+    background-color: black;
+  }
+
+p {
+    font-family: "Trebuchet MS";
+    padding: 300px 0;
+    text-align: center;
+    font-size: 80px;
+    color: rgb(236, 234, 234);
+}
