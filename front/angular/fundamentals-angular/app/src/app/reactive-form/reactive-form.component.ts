@@ -20,13 +20,13 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit() {
     this.formRegister = this.formBuilder.group(
       {
-        name: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
+        name: ["", [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
         cpf: ["", [Validators.pattern(this.regex), Validators.required]],
         age: ["", [Validators.min(18), Validators.required]],
         phone: ["", Validators.required],
         email: ["", [Validators.email, Validators.required]],
         password: ["", [Validators.minLength(8), Validators.required]],
-        confirmPassword: ["", [Validators.minLength(8), Validators.required]]
+        confirmPassword: ["", [Validators.required]]
       },
       {
         validator: comparePassword("password", "confirmPassword")
@@ -34,9 +34,9 @@ export class ReactiveFormComponent implements OnInit {
     );
   }
 
-  // Necessaria pra retornar o valor dos FormControl do FormGroup
+  // Necessaria pra retornar o estado dos FormControl do FormGroup
   get f() {
-    return this.formRegister.value;
+    return this.formRegister.controls;
   }
 
   onSubmit(){
